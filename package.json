@@ -1,5 +1,8 @@
 {
   "name": "sorting-benchmark",
   "version": "1.0.0",
-  "author": "Ilya Frolov"
+  "author": "Ilya Frolov",
+  "scripts": {
+    "benchmark": "node Test.js > results.md"
+  }
 }

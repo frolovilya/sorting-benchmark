@@ -3,17 +3,32 @@ const testSuite = require("./SortTestMethod");
 
 const test = function() {
 
-    for(let suiteName in config) {
-        console.log("------------------------------");
+    for(let groupName in config) {
 
-        console.log("Performing test: " + suiteName);
+        console.log("## " + groupName);
 
-        const results = testSuite(config[suiteName]);
+        let suiteGroup = config[groupName];
+        for (let suiteName in suiteGroup) {
 
-        console.log(results.map((result) => {
-            return result.name + "(" + result.time + ", " + Math.abs(results[0].time - result.time) + ")"
-        }).join(" | "));
-        console.log("Best: " + results[0].name);
+            console.log("### Test: " + suiteName);
+
+            console.log(" Method | Time | Delta ");
+            console.log(" ------ | ---- | ----- ");
+
+            const results = testSuite(suiteGroup[suiteName]);
+            for (let i = 0; i < results.length; i++) {
+
+                let timeInMS = results[i].time/1000000 + "ms";
+                let deltaFromBestResult = i === 0 ? "–" :
+                    (Math.abs(results[0].time - results[i].time)/1000000 + "ms");
+
+                console.log((i === 0 ? "**" + results[i].name + "**" : results[i].name)
+                    + " | " + timeInMS
+                    + " | " + deltaFromBestResult);
+
+            }
+
+        }
     }
 
 };
