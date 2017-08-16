@@ -1,15 +1,15 @@
-/*
+/**
  * Quick Sort
  */
 
-var swap = function(items, firstIndex, secondIndex) {
-	var temp = items[firstIndex];
+const swap = function(items, firstIndex, secondIndex) {
+	let temp = items[firstIndex];
 	items[firstIndex] = items[secondIndex];
 	items[secondIndex] = temp;
 };
 
-var partition = function(items, left, right) {
-	var pivot = items[Math.floor((right + left) / 2)],
+const partition = function(items, left, right) {
+	let pivot = items[Math.floor((right + left) / 2)],
 		i = left,
 		j = right;
 
@@ -29,9 +29,9 @@ var partition = function(items, left, right) {
 	return i;
 };
 
-var _quickSort = function(items, left, right) {
+const _quickSort = function(items, left, right) {
 
-	var index;
+	let index;
 
 	if (items.length > 1) {
 
@@ -48,9 +48,9 @@ var _quickSort = function(items, left, right) {
 	}
 
 	return items;
-}
+};
 
-var quickSort = function(a) {
+const quickSort = function(a) {
 	return _quickSort(a, 0, a.length - 1);
 };
 
