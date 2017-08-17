@@ -1,7 +1,11 @@
-
-const singleExperiment = function(sortMethod, arrayProps, arraySize) {
-    const array = arrayProps.generator(arraySize, arrayProps.range);
-
+/**
+ * Perform single sort on array, return execution time
+ *
+ * @param sortMethod sort method to test
+ * @param array input array
+ * @returns {number} time in nanoseconds
+ */
+const singleExperiment = function(sortMethod, array) {
     const startTime = process.hrtime();
 
     sortMethod(array);
@@ -11,7 +15,25 @@ const singleExperiment = function(sortMethod, arrayProps, arraySize) {
     return resultTime[0] * 1e9 + resultTime[1];
 };
 
-module.exports = function(suite) {
+/**
+ * Generate array of given size with arrayProps
+ *
+ * @param arraySize array size to generate
+ * @param arrayProps array props from suit config
+ * @returns {Array}
+ */
+const generateArray = function(arraySize, arrayProps) {
+    return arrayProps.generator(arraySize, arrayProps.range);
+};
+
+/**
+ * Test suite.
+ * Returns {methodName, totalTime} sorted by totalTime in ascending order
+ *
+ * @param suite test suite
+ * @returns {Array}
+ */
+const testSuite = function(suite) {
 
     return suite.methods.map((method) => {
 
@@ -22,7 +44,7 @@ module.exports = function(suite) {
 
             let experimentTime = 0;
             for(let i = 0; i < suite.numberOfSorts; i++) {
-                experimentTime += singleExperiment(method, suite.array, arraySize)
+                experimentTime += singleExperiment(method, generateArray(arraySize, suite.array))
             }
             experimentTime /= suite.numberOfSorts;
 
@@ -40,3 +62,5 @@ module.exports = function(suite) {
     });
 
 };
+
+module.exports = testSuite;

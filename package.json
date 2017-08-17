@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "author": "Ilya Frolov",
   "scripts": {
-    "benchmark": "node SortingBenchmark.js > ./results/arrayGroups.md"
+    "benchmark-arrayGroups": "node SortingBenchmark.js arrayGroups > ./results/arrayGroups.md"
   }
 }
