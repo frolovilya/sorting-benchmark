@@ -1,12 +1,12 @@
-const ArrayGenerator = require("./ArrayGenerator");
+const ArrayGenerator = require("../../utils/ArrayGenerator");
 
-const SelectionSort = require("./algorithms/SelectionSort");
-const InsertionSort = require("./algorithms/InsertionSort");
-const ShellSort = require("./algorithms/ShellSort");
-const MergeSort = require("./algorithms/MergeSort");
-const QuickSort = require("./algorithms/QuickSort");
-const StdSort = require("./algorithms/StdSort");
-const SwissSort = require("./algorithms/SwissSort");
+const SelectionSort = require("../../algorithms/SelectionSort");
+const InsertionSort = require("../../algorithms/InsertionSort");
+const ShellSort = require("../../algorithms/ShellSort");
+const MergeSort = require("../../algorithms/MergeSort");
+const QuickSort = require("../../algorithms/QuickSort");
+const StdSort = require("../../algorithms/StdSort");
+const SwissSort = require("../../algorithms/SwissSort");
 
 const allSorts = [
     SelectionSort.sort,
@@ -60,35 +60,35 @@ const check = (sorts, numberOfSorts) => {
  */
 Object.assign(config, {
     "Tiny Arrays": {
-        "From 1 To 50 Step 1": {
+        "From 1 To 50": {
             array: {
                 ...randomized,
                 ...withElementsInRange(1, 1000),
                 ...grow(1, 50)
             },
-            ...check(allSorts, 1000)
+            ...check(allSorts, 100)
         },
-        "From 1 To 50 Step 1 Duplicate Keys": {
+        "From 1 To 50 Duplicate Keys": {
             array: {
                 ...randomized,
-                ...withElementsInRange(1, 2),
+                ...withElementsInRange(1, 5),
                 ...grow(1, 50)
             },
-            ...check(allSorts, 1000)
+            ...check(allSorts, 100)
         },
-        "From 1 To 50 Step 1 Sorted Array": {
+        "From 1 To 50 Sorted Array": {
             array: {
                 ...sorted,
                 ...grow(1, 50)
             },
-            ...check(allSorts, 1000)
+            ...check(allSorts, 100)
         },
-        "From 1 To 50 Step 1 Sorted Array Desc": {
+        "From 1 To 50 Sorted Array Desc": {
             array: {
                 ...descSorted,
                 ...grow(1, 50)
             },
-            ...check(allSorts, 1000)
+            ...check(allSorts, 100)
         }
     }
 });
@@ -98,35 +98,35 @@ Object.assign(config, {
  */
 Object.assign(config, {
     "Small Arrays": {
-        "From 50 To 500 Step 50": {
+        "From 50 To 500": {
             array: {
                 ...randomized,
                 ...withElementsInRange(1, 1000),
                 ...grow(50, 500, 50)
             },
-            ...check(allSorts, 1000)
+            ...check(allSorts, 100)
         },
-        "From 50 To 500 Step 50 Duplicate Keys": {
+        "From 50 To 500 Duplicate Keys": {
             array: {
                 ...randomized,
-                ...withElementsInRange(1, 2),
+                ...withElementsInRange(1, 10),
                 ...grow(50, 500, 50)
             },
-            ...check(allSorts, 1000)
+            ...check(allSorts, 100)
         },
-        "From 50 To 500 Step 50 Sorted Array": {
+        "From 50 To 500 Sorted Array": {
             array: {
                 ...sorted,
                 ...grow(50, 500, 50)
             },
-            ...check(allSorts, 1000)
+            ...check(allSorts, 100)
         },
-        "From 50 To 500 Step 20 Sorted Array Desc": {
+        "From 50 To 500 Sorted Array Desc": {
             array: {
                 ...descSorted,
                 ...grow(50, 500, 50)
             },
-            ...check(allSorts, 1000)
+            ...check(allSorts, 100)
         }
     }
 });
@@ -136,7 +136,7 @@ Object.assign(config, {
  */
 Object.assign(config, {
     "Medium Arrays": {
-        "From 1000 To 10000 Step 1000": {
+        "From 1000 To 10000": {
             array: {
                 ...randomized,
                 ...withElementsInRange(1, 1000),
@@ -144,22 +144,22 @@ Object.assign(config, {
             },
             ...check(allSorts, 10)
         },
-        "From 1000 To 10000 Step 1000 Duplicate Keys": {
+        "From 1000 To 10000 Duplicate Keys": {
             array: {
                 ...randomized,
-                ...withElementsInRange(1, 2),
+                ...withElementsInRange(1, 100),
                 ...grow(1000, 10000, 1000)
             },
             ...check(allSorts, 10)
         },
-        "From 1000 To 10000 Step 1000 Sorted Array": {
+        "From 1000 To 10000 Sorted Array": {
             array: {
                 ...sorted,
                 ...grow(1000, 10000, 1000)
             },
             ...check(allSorts, 10)
         },
-        "From 1000 To 10000 Step 1000 Sorted Array Desc": {
+        "From 1000 To 10000 Sorted Array Desc": {
             array: {
                 ...descSorted,
                 ...grow(1000, 10000, 1000)
@@ -174,30 +174,30 @@ Object.assign(config, {
  */
 Object.assign(config, {
     "Big Arrays": {
-        "From 10000 To 100000 Step 10000": {
+        "From 10000 To 100000": {
             array: {
                 ...randomized,
-                ...withElementsInRange(1, 1000),
+                ...withElementsInRange(1, 10000),
                 ...grow(10000, 100000, 10000)
             },
             ...check(allSorts.slice(2), 10)
         },
-        "From 10000 To 100000 Step 10000 Duplicate Keys": {
+        "From 10000 To 100000 Duplicate Keys": {
             array: {
                 ...randomized,
-                ...withElementsInRange(1, 2),
+                ...withElementsInRange(1, 100),
                 ...grow(10000, 100000, 10000)
             },
             ...check(allSorts.slice(2), 10)
         },
-        "From 10000 To 100000 Step 10000 Sorted Array": {
+        "From 10000 To 100000 Sorted Array": {
             array: {
                 ...sorted,
                 ...grow(10000, 100000, 10000)
             },
             ...check(allSorts.slice(2), 10)
         },
-        "From 10000 To 100000 Step 10000 Sorted Array Desc": {
+        "From 10000 To 100000 Sorted Array Desc": {
             array: {
                 ...descSorted,
                 ...grow(10000, 100000, 10000)
@@ -215,7 +215,7 @@ Object.assign(config, {
         "Sort 500'000": {
             array: {
                 ...randomized,
-                ...withElementsInRange(1, 1000),
+                ...withElementsInRange(1, 500000),
                 ...grow(500000, 500000)
             },
             ...check(allSorts.slice(2), 2)
@@ -223,7 +223,7 @@ Object.assign(config, {
         "Sort 1'000'000": {
             array: {
                 ...randomized,
-                ...withElementsInRange(1, 1000),
+                ...withElementsInRange(1, 1000000),
                 ...grow(1000000, 1000000)
             },
             ...check(allSorts.slice(2), 2)
@@ -231,7 +231,7 @@ Object.assign(config, {
         "Sort 10'000'000": {
             array: {
                 ...randomized,
-                ...withElementsInRange(1, 1000),
+                ...withElementsInRange(1, 10000000),
                 ...grow(10000000, 10000000)
             },
             ...check(allSorts.slice(2), 2)

@@ -1,7 +1,7 @@
 const config = require("./SuitsConfig");
-const testSuite = require("./SortTestMethod");
+const testSuite = require("../SortTestMethod");
 
-const test = function() {
+const performTest = function() {
 
     for(let groupName in config) {
 
@@ -18,13 +18,12 @@ const test = function() {
             const results = testSuite(suiteGroup[suiteName]);
             for (let i = 0; i < results.length; i++) {
 
-                let timeInMS = results[i].time/1000000 + "ms";
-                let deltaFromBestResult = i === 0 ? "–" :
-                    (Math.abs(results[0].time - results[i].time)/1000000 + "ms");
+                let timeInMS = (results[i].time/1000000).toFixed(4);
+                let deltaFromBestResult = (Math.abs(results[0].time - results[i].time)/1000000).toFixed(4);
 
                 console.log((i === 0 ? "**" + results[i].name + "**" : results[i].name)
-                    + " | " + timeInMS
-                    + " | " + deltaFromBestResult);
+                    + " | " + timeInMS + "ms"
+                    + " | " + (i === 0 ? "-" : deltaFromBestResult + "ms"));
 
             }
 
@@ -33,4 +32,4 @@ const test = function() {
 
 };
 
-test();
+module.exports = performTest;
