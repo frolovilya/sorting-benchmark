@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: Helvetica;
+}
+
+a, a:visited, a:active {
+    color: #267CB9;
+}
+
+
+.menu {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+h2.title {
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+a.gitHubLink {
+    padding-left: 15px;
+}
+
+ul#suitsMenu {
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+ul#suitsMenu li {
+    list-style-type: none;
+    padding: 15px;
+    font-size: 14px;
+}
+
+ul#suitsMenu li.selected,
+ul#suitsMenu li.selected:hover {
+    background-color: #222;
+    color: #fff;
+    cursor: default;
+}
+
+ul#suitsMenu li:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+    color: #000;
+}
+
+.page {
+    margin-left: 300px;
+    padding: 20px;
+}
+
+.suit {
+    width: 800px;
+}

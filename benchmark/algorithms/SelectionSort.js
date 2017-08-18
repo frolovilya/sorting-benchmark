@@ -25,6 +25,8 @@ const selectionSort = function(a) {
 		}
 	}
 
+	return a;
+
 };
 
 module.exports.sort = selectionSort;
