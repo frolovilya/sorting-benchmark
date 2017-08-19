@@ -4,11 +4,15 @@
   "author": "Ilya Frolov",
   "scripts": {
     "benchmark": "node ./src/benchmark/SortingBenchmark.js ./docs/results.js",
-    "build-site": "webpack -p"
+    "build-site": "webpack -p",
+    "test": "mocha --recursive"
+  },
+  "dependencies": {
+    "benchmark": "^2.1.4"
   },
   "devDependencies": {
-    "benchmark": "^2.1.4",
     "chart.js": "^2.6.0",
+    "mocha": "^3.5.0",
     "webpack": "^3.5.5"
   }
 }
