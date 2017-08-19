@@ -47,11 +47,10 @@ const _quickSort = function(items, left, right) {
 
 	}
 
-	return items;
 };
 
 const quickSort = function(a) {
-	return _quickSort(a, 0, a.length - 1);
+	_quickSort(a, 0, a.length - 1);
 };
 
 module.exports.sort = quickSort;

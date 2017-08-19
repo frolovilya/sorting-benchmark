@@ -29,7 +29,6 @@ const _mergeSort = function(a, lo, hi) {
 
 const mergeSort = function(a) {
 	_mergeSort(a, 0, a.length - 1);
-	return a;
 };
 
 module.exports.sort = mergeSort;

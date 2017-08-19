@@ -9,7 +9,7 @@ const StdSort = require("../algorithms/StdSort");
 const SwissSort = require("../algorithms/SwissSort");
 
 const slowSorts = [
-    // SelectionSort.sort,
+    SelectionSort.sort,
     InsertionSort.sort
 ];
 
@@ -53,10 +53,9 @@ const size = (from, to, step = 1) => {
     };
 };
 
-const check = (sorts, numberOfSorts) => {
+const check = (sorts) => {
     return {
-        methods: sorts,
-        numberOfSorts: numberOfSorts
+        methods: sorts
     };
 };
 
@@ -70,7 +69,7 @@ Object.assign(config, {
             ...withElementsInRange(0, 1000),
             ...size(0, 100, 5)
         },
-        ...check(allSorts, 1000)
+        ...check(allSorts)
     },
     "From 0 To 100 Duplicate Keys": {
         array: {
@@ -78,95 +77,95 @@ Object.assign(config, {
             ...withElementsInRange(0, 2),
             ...size(0, 100, 5)
         },
-        ...check(allSorts, 1000)
+        ...check(allSorts)
     },
     "From 0 To 100 Sorted Array": {
         array: {
             ...sorted,
             ...size(0, 100, 5)
         },
-        ...check(allSorts, 1000)
+        ...check(allSorts)
     },
     "From 0 To 100 Sorted Array Desc": {
         array: {
             ...descSorted,
             ...size(0, 100, 5)
         },
-        ...check(allSorts, 1000)
+        ...check(allSorts)
     }
 });
 
-/*
- * Test methods on small size arrays
- */
-Object.assign(config, {
-    "From 100 To 1000": {
-        array: {
-            ...randomized,
-            ...withElementsInRange(0, 10000),
-            ...size(100, 1000, 50)
-        },
-        ...check(allSorts, 100)
-    },
-    "From 100 To 1000 Duplicate Keys": {
-        array: {
-            ...randomized,
-            ...withElementsInRange(0, 5),
-            ...size(100, 1000, 50)
-        },
-        ...check(allSorts, 100)
-    },
-    "From 100 To 1000 Sorted Array": {
-        array: {
-            ...sorted,
-            ...size(100, 1000, 50)
-        },
-        ...check(allSorts, 100)
-    },
-    "From 100 To 1000 Sorted Array Desc": {
-        array: {
-            ...descSorted,
-            ...size(100, 1000, 50)
-        },
-        ...check(allSorts, 100)
-    }
-});
+// /*
+//  * Test methods on small size arrays
+//  */
+// Object.assign(config, {
+//     "From 100 To 1000": {
+//         array: {
+//             ...randomized,
+//             ...withElementsInRange(0, 10000),
+//             ...size(100, 1000, 50)
+//         },
+//         ...check(allSorts)
+//     },
+//     "From 100 To 1000 Duplicate Keys": {
+//         array: {
+//             ...randomized,
+//             ...withElementsInRange(0, 5),
+//             ...size(100, 1000, 50)
+//         },
+//         ...check(allSorts)
+//     },
+//     "From 100 To 1000 Sorted Array": {
+//         array: {
+//             ...sorted,
+//             ...size(100, 1000, 50)
+//         },
+//         ...check(allSorts)
+//     },
+//     "From 100 To 1000 Sorted Array Desc": {
+//         array: {
+//             ...descSorted,
+//             ...size(100, 1000, 50)
+//         },
+//         ...check(allSorts)
+//     }
+// });
 
-/*
- * Test methods on medium size arrays
- */
-Object.assign(config, {
-    "From 1000 To 10000": {
-        array: {
-            ...randomized,
-            ...withElementsInRange(0, 100000),
-            ...size(1000, 10000, 500)
-        },
-        ...check(allSorts, 5)
-    },
-    "From 1000 To 10000 Duplicate Keys": {
-        array: {
-            ...randomized,
-            ...withElementsInRange(0, 10),
-            ...size(1000, 10000, 500)
-        },
-        ...check(allSorts, 5)
-    },
-    "From 1000 To 10000 Sorted Array": {
-        array: {
-            ...sorted,
-            ...size(1000, 10000, 500)
-        },
-        ...check(allSorts, 5)
-    },
-    "From 1000 To 10000 Sorted Array Desc": {
-        array: {
-            ...descSorted,
-            ...size(1000, 10000, 500)
-        },
-        ...check(allSorts, 5)
-    }
-});
+// /*
+//  * Test methods on medium size arrays
+//  */
+// Object.assign(config, {
+//     "From 1000 To 10000": {
+//         array: {
+//             ...randomized,
+//             ...withElementsInRange(0, 100000),
+//             ...size(1000, 10000, 500)
+//         },
+//         ...check(allSorts, 5)
+//     },
+//     "From 1000 To 10000 Duplicate Keys": {
+//         array: {
+//             ...randomized,
+//             ...withElementsInRange(0, 10),
+//             ...size(1000, 10000, 500)
+//         },
+//         ...check(allSorts, 5)
+//     },
+//     "From 1000 To 10000 Sorted Array": {
+//         array: {
+//             ...sorted,
+//             ...size(1000, 10000, 500)
+//         },
+//         ...check(allSorts, 5)
+//     },
+//     "From 1000 To 10000 Sorted Array Desc": {
+//         array: {
+//             ...descSorted,
+//             ...size(1000, 10000, 500)
+//         },
+//         ...check(allSorts, 5)
+//     }
+// });
 
 /*
  * Test methods on big size arrays

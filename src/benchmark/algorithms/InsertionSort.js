@@ -16,8 +16,6 @@ const insertionSort = function(a) {
 		}
 	}
 
-	return a;
-
 };
 
 module.exports.sort = insertionSort;

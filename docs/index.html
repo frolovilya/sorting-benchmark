@@ -4,7 +4,6 @@
     <title>Sorting Benchmark</title>
     <link rel="stylesheet" href="styles.css">
     <script src="results.js"></script>
-    <script src="Chart.min.js"></script>
 </head>
 <body>
 <div>
@@ -13,131 +12,14 @@
             <h2 class="title">Sorting Benchmark</h2>
             <a class="gitHubLink" href="#">View on GitHub</a>
         </div>
-        <ul id="suitsMenu">
-            <li id="from100To10000SortedArrayDesc" class="selected">From 10000 To 100000 Sorted Array Desc</li>
-            <li id="a123">From 10000 To 100000 Duplicating Keys</li>
-        </ul>
+        <ul id="suitsMenu"></ul>
     </div>
     <div class="page">
         <div class="suit">
-            <canvas id="myChart" width="400" height="400"></canvas>
-            <script>
-
-                function renderMenu() {
-                    var menuElement = document.getElementById("suitsMenu");
-                    menuElement.innerHTML = "";
-
-                    window.results.map(function(suiteResult) {
-                        var li = document.createElement("li");
-                        li.innerHTML = suiteResult.suiteName;
-                        li.id = suiteResult.suiteName.replace(/ /g, "-");
-                        if(window.location.hash.substring(1) === li.id) {
-                            li.className = "selected";
-                        }
-                        li.onclick = function() {
-                            window.location.hash = li.id;
-                        };
-
-                        menuElement.appendChild(li);
-                    });
-                }
-
-                renderMenu();
-
-                function getColor(index) {
-                    let colors = {
-                        blue: "rgb(54, 162, 235)",
-                        green:"rgb(75, 192, 192)",
-                        grey:"rgb(201, 203, 207)",
-                        orange:"rgb(255, 159, 64)",
-                        purple:"rgb(153, 102, 255)",
-                        red:"rgb(255, 99, 132)",
-                        yellow:"rgb(255, 205, 86)"
-                    };
-
-                    return colors[Object.keys(colors)[index <= 6 ? index : 6]];
-                }
-
-                function suiteMethodToDataSet(suiteMethod, index) {
-                    let color = getColor(index);
-
-                    return {
-                        label: suiteMethod.name,
-                        fill: false,
-                        data: suiteMethod.times,
-                        borderColor: color,
-                        backgroundColor: color
-                    };
-                }
-
-                function suiteResultToData() {
-                    var suiteName = window.location.hash.substring(1).replace(/-/g, " ");
-                    var result = null;
-                    if(suiteName) {
-                        result = window.results.filter(function(result) {
-                            return result.suiteName == suiteName
-                        })[0];
-                    }
-                    if(!result)
-                        result = window.results[0];
-
-                    result = result.results;
-
-                    return {
-                        labels: result.arrays,
-                        datasets: result.methods.map(function(method, index) {
-                            return suiteMethodToDataSet(method, index);
-                        })
-                    }
-                }
-
-                function renderChart() {
-                    var ctx = document.getElementById("myChart").getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'line',
-                        data: suiteResultToData(),
-                        options: {
-                            responsive: true,
-                            hoverMode: 'index',
-                            tooltips: {
-                                mode: 'index',
-                                intersect: false,
-                                itemSort: function(a, b) {
-                                    return a.yLabel > b.yLabel;
-                                }
-                            },
-                            hover: {
-                                mode: 'nearest',
-                                intersect: true
-                            },
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-
-                    return myChart;
-                }
-
-                var chart = renderChart();
-
-
-                window.addEventListener("hashchange", function() {
-                   renderMenu();
-
-                    chart.data = suiteResultToData();
-
-                    chart.update();
-
-                });
-
-            </script>
+            <canvas id="sortChart"></canvas>
         </div>
     </div>
+    <script src="bundle.js"></script>
 </div>
 </body>
 </html>
