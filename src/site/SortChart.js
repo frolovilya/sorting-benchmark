@@ -1,6 +1,11 @@
 var Chart = require("chart.js");
 var Color = require("./SortColors");
 
+/**
+ * Map test suites results to Chart data
+ *
+ * @returns {labels, datasets}
+ */
 function suiteResultsToData() {
     var suiteName = window.location.hash.substring(1).replace(/-/g, " ");
     var suiteResults = window.results[suiteName];
@@ -11,10 +16,18 @@ function suiteResultsToData() {
         labels: suiteResults.map(function(result) {
             return result.array;
         }),
-        datasets: mapSuiteResultsToDataSet(suiteResults)
+        datasets: mapSuiteResultsToDataSet(suiteResults).sort(function(dataset1, dataset2) {
+            return dataset1.totalTime > dataset2.totalTime;
+        })
     }
 }
 
+/**
+ * Map every suite result to Chart dataset
+ *
+ * @param suiteResults suite results
+ * @returns {Array} datasets
+ */
 function mapSuiteResultsToDataSet(suiteResults) {
     var methodTimes = suiteResults.reduce(function(methods, result) {
         for(var methodName in result.methods) {
@@ -32,6 +45,9 @@ function mapSuiteResultsToDataSet(suiteResults) {
             label: methodName,
             fill: false,
             data: methodTimes[methodName],
+            totalTime: methodTimes[methodName].reduce(function(total, time) {
+                return total + time;
+            }, 0),
             borderColor: color,
             backgroundColor: color
         });
@@ -40,6 +56,9 @@ function mapSuiteResultsToDataSet(suiteResults) {
     return dataSets;
 }
 
+/**
+ * Render chart to display suite results
+ */
 function renderChart() {
     var ctx = document.getElementById("sortChart").getContext('2d');
 

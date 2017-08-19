@@ -1,8 +1,8 @@
 /**
- * Define fixed colors for all sort methods
+ * Map sort method name to fixed color
  *
- * @param sortName
- * @returns {string}
+ * @param sortName sort name
+ * @returns {string} color
  */
 function getColor(sortName) {
     var colors = {

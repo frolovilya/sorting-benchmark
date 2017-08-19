@@ -50,7 +50,7 @@ a, a:visited, a:active {
 .page {
     height: 80%;
     width: 100%;
-    position: absolute;
+    position: fixed;
 }
 
 .page .suit {
