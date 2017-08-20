@@ -1,5 +1,5 @@
 const config = require("./suits/SuitsConfig");
-const SortTestSuite = require("./suits/SortTestSuite");
+const SuiteTest = require("./suits/SuiteTest");
 const fs = require('fs');
 
 let args = process.argv.slice(2);
@@ -37,7 +37,7 @@ const generateResults = async function() {
 
         console.log("Performing test: " + suiteName);
 
-        results[suiteName] = await SortTestSuite.testSuite(suite);
+        results[suiteName] = await SuiteTest.test(suite);
     }
 
     return results;

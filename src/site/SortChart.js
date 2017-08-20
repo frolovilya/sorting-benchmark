@@ -74,6 +74,11 @@ function renderChart() {
                 intersect: false,
                 itemSort: function(a, b) {
                     return a.yLabel > b.yLabel;
+                },
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        return tooltipItem.yLabel.toFixed(7);
+                    }
                 }
             },
             hover: {
@@ -84,6 +89,16 @@ function renderChart() {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Time (sec)'
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Array Size (elements)'
                     }
                 }]
             },

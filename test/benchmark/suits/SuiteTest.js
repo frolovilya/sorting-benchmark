@@ -1,9 +1,9 @@
 const assert = require("assert");
-const SortTestSuite = require("../../../src/benchmark/suits/SortTestSuite");
+const SuiteTest = require("../../../src/benchmark/suits/SuiteTest");
 const ArrayGenerator = require("../../../src/benchmark/utils/ArrayGenerator");
 const InsertionSort = require("../../../src/benchmark/algorithms/InsertionSort");
 
-describe("SortTestSuite", function() {
+describe("SuiteTest", function() {
 
     describe("#test(suiteConfig)", function() {
 
@@ -23,7 +23,7 @@ describe("SortTestSuite", function() {
             methods: [InsertionSort.sort]
         };
 
-        const promise = SortTestSuite.testSuite(suiteConfig);
+        const promise = SuiteTest.test(suiteConfig);
 
         it("should return correct test results", function() {
             return promise.then((results) => {

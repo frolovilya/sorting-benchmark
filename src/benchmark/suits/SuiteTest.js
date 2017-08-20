@@ -58,4 +58,4 @@ const testSuite = async function(suiteConfig) {
 };
 
 
-module.exports.testSuite = testSuite;
+module.exports.test = testSuite;
