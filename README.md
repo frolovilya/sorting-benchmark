@@ -8,7 +8,7 @@ Each sort method is being tested on array of integers.
 
 Array sizes vary from 0 to 10'000'000 elements depending on sort method general performance.
 
-Array elements are generated using the following structure patterns:
+Arrays are generated using the following structure patterns:
 * Randomized 
   * With elements in given range (min, max)
   * With duplicating elements (many repeating elements)
