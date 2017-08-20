@@ -26,6 +26,7 @@ Sort alogithms and benchmarking code is written in pure ES6 without any transpil
 In case you want to test sort methods performance on your local system (Node.js required):
 ```
 git clone https://github.com/frolovilya/sorting-benchmark.git
+npm install --production
 npm run benchmark
 ```
 Open index.html from /docs folder to view generated results.
