@@ -8,7 +8,7 @@ Each sort method is being tested on array of integers.
 
 Array sizes vary from 0 to 10'000'000 elements depending on sort method general performance.
 
-Array elements are generated using the following structure patterns:
+Arrays are generated using the following structure patterns:
 * Randomized 
   * With elements in given range (min, max)
   * With duplicating elements (many repeating elements)
@@ -26,6 +26,7 @@ Sort alogithms and benchmarking code is written in pure ES6 without any transpil
 In case you want to test sort methods performance on your local system (Node.js required):
 ```
 git clone https://github.com/frolovilya/sorting-benchmark.git
+npm install --production
 npm run benchmark
 ```
 Open index.html from /docs folder to view generated results.
