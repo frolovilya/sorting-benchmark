@@ -24,6 +24,9 @@ const selectionSort = function(a) {
 			exchange(a, i, min);
 		}
 	}
+
+	return a;
+
 };
 
 module.exports.sort = selectionSort;

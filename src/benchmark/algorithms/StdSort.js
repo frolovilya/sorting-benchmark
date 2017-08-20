@@ -3,7 +3,7 @@
  */
 
 const stdSort = function(a) {
-    a.sort((a, b) => a > b);
+    return a.sort((a, b) => a > b);
 };
 
 module.exports.sort = stdSort;

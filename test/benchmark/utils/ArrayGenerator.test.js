@@ -1,7 +1,7 @@
-const assert = require('assert');
+const assert = require("assert");
 const ArrayGenerator = require("../../../src/benchmark/utils/ArrayGenerator");
 
-describe('ArrayGenerator', function() {
+describe("ArrayGenerator", function() {
 
     describe("#randomizedArray(size, range)", function() {
 
@@ -21,7 +21,7 @@ describe('ArrayGenerator', function() {
             });
         });
 
-        it('should return random array each time', function() {
+        it("should return random array each time", function() {
             const size = 1;
             const range = {min: 0, max: 1000000};
             const array1 = ArrayGenerator.randomizedArray(size, range);
@@ -49,7 +49,7 @@ describe('ArrayGenerator', function() {
             }
         });
 
-        it('should return same array each time', function() {
+        it("should return same array each time", function() {
             const size = 10;
             const array1 = ArrayGenerator.sortedArray(size);
             const array2 = ArrayGenerator.sortedArray(size);
@@ -78,7 +78,7 @@ describe('ArrayGenerator', function() {
             }
         });
 
-        it('should return same array each time', function() {
+        it("should return same array each time", function() {
             const size = 10;
             const array1 = ArrayGenerator.descSortedArray(size);
             const array2 = ArrayGenerator.descSortedArray(size);

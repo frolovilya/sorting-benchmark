@@ -1,10 +1,15 @@
 const config = require("./suits/SuitsConfig");
-const testSuite = require("./suits/SortTestSuite");
+const SortTestSuite = require("./suits/SortTestSuite");
 const fs = require('fs');
 
 let args = process.argv.slice(2);
 let resultsFilePath = args[0] || "../docs/results.js";
 
+/**
+ * Save generated results as javascript file
+ *
+ * @param results
+ */
 const saveResults = function(results) {
     console.log("Saving results...");
 
@@ -19,8 +24,12 @@ const saveResults = function(results) {
     });
 };
 
+/**
+ * Test all suites and await for results
+ *
+ * @returns {Promise.<{}>}
+ */
 const generateResults = async function() {
-
     let results = {};
 
     for (let suiteName in config) {
@@ -28,7 +37,7 @@ const generateResults = async function() {
 
         console.log("Performing test: " + suiteName);
 
-        results[suiteName] = await testSuite(suite);
+        results[suiteName] = await SortTestSuite.testSuite(suite);
     }
 
     return results;

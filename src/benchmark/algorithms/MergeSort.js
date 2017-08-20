@@ -24,11 +24,13 @@ const _mergeSort = function(a, lo, hi) {
 	let mid = Math.floor((hi - lo) / 2) + lo;
 	_mergeSort(a, lo, mid);
 	_mergeSort(a, mid + 1, hi);
-	merge(a, lo, mid, hi);	
+	merge(a, lo, mid, hi);
+
+	return a;
 };
 
 const mergeSort = function(a) {
-	_mergeSort(a, 0, a.length - 1);
+	return _mergeSort(a, 0, a.length - 1);
 };
 
 module.exports.sort = mergeSort;

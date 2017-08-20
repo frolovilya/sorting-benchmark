@@ -26,7 +26,7 @@ const randomizedArray = function(size, range) {
 };
 
 /**
- * Generate sorted array of given size (0..size)
+ * Generate sorted array of given size (0..size-1)
  *
  * @param size array size to generate
  * @returns {Array}
@@ -41,7 +41,7 @@ const sortedArray = function(size) {
 };
 
 /**
- * Generate descending order sorted array of given size (size..0)
+ * Generate descending order sorted array of given size (size-1..0)
  *
  * @param size array size to generate
  * @returns {Array}

@@ -1,7 +1,7 @@
-const Benchmark = require('benchmark');
+const Benchmark = require("benchmark");
 
 /**
- * Generate arrays with arrayProps
+ * Generate arrays with given arrayProps
  *
  * @param arrayProps array props from suit config
  * @returns {[Array]}
@@ -21,7 +21,7 @@ const generateArrays = function(arrayProps) {
 
 /**
  * Test suite.
- * For each generated array test all methods sort time.
+ * For each generated array test all sort methods.
  *
  * @param suiteConfig test suite config
  * @returns Promise<[{arraySize, {methodName: time}}]>
@@ -58,4 +58,4 @@ const testSuite = async function(suiteConfig) {
 };
 
 
-module.exports = testSuite;
+module.exports.testSuite = testSuite;

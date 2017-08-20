@@ -25,6 +25,8 @@ const shellSort = function(a) {
 		h = Math.floor(h / 3);
 	}
 
+	return a;
+
 };
 
 module.exports.sort = shellSort;

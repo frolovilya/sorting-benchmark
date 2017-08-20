@@ -6,7 +6,6 @@ const ShellSort = require("../algorithms/ShellSort");
 const MergeSort = require("../algorithms/MergeSort");
 const QuickSort = require("../algorithms/QuickSort");
 const StdSort = require("../algorithms/StdSort");
-const SwissSort = require("../algorithms/SwissSort");
 
 const slowSorts = [
     SelectionSort.sort,
