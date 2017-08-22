@@ -1,9 +1,9 @@
 const assert = require("assert");
-const SuiteTest = require("../../../src/benchmark/suits/SuiteTest");
+const SuiteTest = require("../../../src/benchmark/suites/SuiteBenchmark");
 const ArrayGenerator = require("../../../src/benchmark/utils/ArrayGenerator");
 const InsertionSort = require("../../../src/benchmark/algorithms/InsertionSort");
 
-describe("SuiteTest", function() {
+describe("SuiteBenchmark", function() {
 
     describe("#test(suiteConfig)", function() {
 

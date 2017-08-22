@@ -23,25 +23,25 @@ a, a:visited, a:active {
     padding-left: 15px;
 }
 
-.menu ul#suitsMenu {
+.menu ul#suitesMenu {
     margin: 20px 0 0 0;
     padding: 0;
 }
 
-.menu ul#suitsMenu li {
+.menu ul#suitesMenu li {
     list-style-type: none;
     padding: 15px;
     font-size: 14px;
 }
 
-.menu ul#suitsMenu li.selected,
-.menu ul#suitsMenu li.selected:hover {
+.menu ul#suitesMenu li.selected,
+.menu ul#suitesMenu li.selected:hover {
     background-color: #222;
     color: #fff;
     cursor: default;
 }
 
-.menu ul#suitsMenu li:hover {
+.menu ul#suitesMenu li:hover {
     background-color: #e0e0e0;
     cursor: pointer;
     color: #000;
@@ -53,7 +53,7 @@ a, a:visited, a:active {
     position: fixed;
 }
 
-.page .suit {
+.page .suite {
     min-width: 600px;
     min-height: 300px;
     padding: 20px;

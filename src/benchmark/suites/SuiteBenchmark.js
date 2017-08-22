@@ -21,7 +21,7 @@ const generateArrays = function(arrayProps) {
 
 /**
  * Test suite.
- * For each generated array test all sort methods.
+ * For each generated array, test all sort methods.
  *
  * @param suiteConfig test suite config
  * @returns Promise<[{arraySize, {methodName: time}}]>

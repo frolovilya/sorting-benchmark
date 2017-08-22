@@ -1,5 +1,5 @@
-const config = require("./suits/SuitsConfig");
-const SuiteTest = require("./suits/SuiteTest");
+const config = require("./suites/SuitesConfig");
+const SuiteTest = require("./suites/SuiteBenchmark");
 const fs = require('fs');
 
 let args = process.argv.slice(2);
@@ -27,21 +27,24 @@ const saveResults = function(results) {
 /**
  * Test all suites and await for results
  *
- * @returns {Promise.<{}>}
+ * @returns {Array}
  */
 const generateResults = async function() {
-    let results = {};
+    let results = [];
+    for(let i = 0; i < config.length; i++) {
+        let suiteConfig = config[i];
 
-    for (let suiteName in config) {
-        let suite = config[suiteName];
+        console.log("Performing test: " + suiteConfig.name);
 
-        console.log("Performing test: " + suiteName);
+        let suiteResults = await SuiteTest.test(suiteConfig);
 
-        results[suiteName] = await SuiteTest.test(suite);
+        results.push({
+            name: suiteConfig.name,
+            results: suiteResults
+        });
     }
 
     return results;
-
 };
 
 const performTest = async function() {

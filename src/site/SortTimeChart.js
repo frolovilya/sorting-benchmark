@@ -1,34 +1,32 @@
 var Chart = require("chart.js");
-var Color = require("./SortColors");
+var Color = require("./SortMethodsColorMap");
+var SelectedSuite = require("./SelectedSuite");
 
 /**
- * Map test suites results to Chart data
+ * Map suite results to Chart.js data format
  *
  * @returns {labels, datasets}
  */
 function suiteResultsToData() {
-    var suiteName = window.location.hash.substring(1).replace(/-/g, " ");
-    var suiteResults = window.results[suiteName];
-    if(!suiteResults)
-        suiteResults = window.results[Object.keys(window.results)[0]];
+    var suite = window.results[SelectedSuite.getSelectedSuiteIndex()];
 
     return {
-        labels: suiteResults.map(function(result) {
+        labels: suite.results.map(function(result) {
             return result.array;
         }),
-        datasets: mapSuiteResultsToDataSet(suiteResults).sort(function(dataset1, dataset2) {
+        datasets: mapSuiteMethodsToDataSet(suite.results).sort(function(dataset1, dataset2) {
             return dataset1.totalTime > dataset2.totalTime;
         })
     }
 }
 
 /**
- * Map every suite result to Chart dataset
+ * Map every suite method result to Chart.js dataset format
  *
  * @param suiteResults suite results
  * @returns {Array} datasets
  */
-function mapSuiteResultsToDataSet(suiteResults) {
+function mapSuiteMethodsToDataSet(suiteResults) {
     var methodTimes = suiteResults.reduce(function(methods, result) {
         for(var methodName in result.methods) {
             methods[methodName] = methods[methodName] || [];

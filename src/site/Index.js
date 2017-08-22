@@ -1,5 +1,5 @@
-var Chart = require("./SortChart");
-var Menu = require("./Menu");
+var Chart = require("./SortTimeChart");
+var Menu = require("./SuitesMenu");
 
 Menu.renderMenu();
 var sortChart = Chart.renderChart();
