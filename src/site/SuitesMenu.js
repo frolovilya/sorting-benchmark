@@ -1,7 +1,7 @@
 var SelectedSuite = require("./SelectedSuite");
 
 /**
- * Render suits menu.
+ * Render suites menu.
  */
 function renderMenu() {
     var menuElement = document.getElementById("suitesMenu");
