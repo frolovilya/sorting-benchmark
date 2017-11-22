@@ -1,5 +1,12 @@
 /**
  * Quick Sort
+ *
+ * Time: O(N*logN)
+ * Space: O(logN) (stack size)
+ *
+ * + fastest sort in average;
+ * - can degrade to O(N^2);
+ * - non-stable
  */
 
 const swap = function(items, firstIndex, secondIndex) {
@@ -8,6 +15,11 @@ const swap = function(items, firstIndex, secondIndex) {
 	items[secondIndex] = temp;
 };
 
+/**
+ * Partition array:
+ * 1. define pivot element V;
+ * 2. restructure array to have all elements x <= V <= y
+ */
 const partition = function(items, left, right) {
 	let pivot = items[Math.floor((right + left) / 2)],
 		i = left,

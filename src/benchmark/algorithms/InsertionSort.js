@@ -1,5 +1,13 @@
 /**
  * Insertion Sort
+ *
+ * Time: O(N^2)
+ * Space: O(1)
+ *
+ * + fast on already or partially sorted collection;
+ * + no extra space;
+ * + stable;
+ * - speed related to input data
  */
 
 const insertionSort = function(a) {

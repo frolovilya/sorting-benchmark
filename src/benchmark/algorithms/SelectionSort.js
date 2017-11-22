@@ -1,5 +1,12 @@
 /**
  * Selection Sort
+ *
+ * Time: O(N^2)
+ * Space: O(1)
+ *
+ * + only N exchanges;
+ * + no extra space;
+ * - very slow
  */
 
 const selectionSort = function(a) {

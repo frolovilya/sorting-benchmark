@@ -5,6 +5,7 @@ const InsertionSort = require("../algorithms/InsertionSort");
 const ShellSort = require("../algorithms/ShellSort");
 const MergeSort = require("../algorithms/MergeSort");
 const QuickSort = require("../algorithms/QuickSort");
+const QuickSort3Way = require("../algorithms/QuickSort3Way");
 const StdSort = require("../algorithms/StdSort");
 
 const slowSorts = [
@@ -16,6 +17,7 @@ const fastSorts = [
     ShellSort.sort,
     MergeSort.sort,
     QuickSort.sort,
+    QuickSort3Way.sort,
     StdSort.sort
 ];
 

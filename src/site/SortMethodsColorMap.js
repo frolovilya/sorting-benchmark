@@ -11,6 +11,7 @@ function getColor(sortName) {
         shellSort: "rgb(201, 203, 207)",
         mergeSort: "rgb(255, 159, 64)",
         quickSort: "rgb(153, 102, 255)",
+        quickSort3Way: "rgb(156, 90, 175)",
         stdSort: "rgb(255, 99, 132)",
         other: "rgb(255, 205, 86)"
     };

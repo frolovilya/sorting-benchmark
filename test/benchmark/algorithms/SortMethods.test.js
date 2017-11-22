@@ -2,6 +2,7 @@ const assert = require("assert");
 const InsertionSort = require("../../../src/benchmark/algorithms/InsertionSort");
 const MergeSort = require("../../../src/benchmark/algorithms/MergeSort");
 const QuickSort = require("../../../src/benchmark/algorithms/QuickSort");
+const QuickSort3Way = require("../../../src/benchmark/algorithms/QuickSort3Way");
 const SelectionSort = require("../../../src/benchmark/algorithms/SelectionSort");
 const ShellSort = require("../../../src/benchmark/algorithms/ShellSort");
 const StdSort = require("../../../src/benchmark/algorithms/StdSort");
@@ -10,6 +11,7 @@ const sortMethods = [
     InsertionSort.sort,
     MergeSort.sort,
     QuickSort.sort,
+    QuickSort3Way.sort,
     SelectionSort.sort,
     ShellSort.sort,
     StdSort.sort

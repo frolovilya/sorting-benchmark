@@ -1,9 +1,19 @@
 /**
  * Merge Sort
+ *
+ * Time: O(N*logN)
+ * Space: O(N)
+ *
+ * + stable;
+ * + fast;
+ * - requires extra space
  */
 
 let aux = [];
 
+/**
+ * Merge two sub-arrays [lo, mid], [mid + 1, hi] into sorted one
+ */
 const merge = function(a, lo, mid, hi) {
 	let i = lo, j = mid + 1;
 
