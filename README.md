@@ -3,6 +3,8 @@ Testing different sorting algorithms performance on Node.js with integer arrays 
 
 https://frolovilya.github.io/sorting-benchmark/
 
+![Screenshot](https://user-images.githubusercontent.com/271293/29563584-e54b81fa-8746-11e7-8e46-49c26bc73b03.png)
+
 ## Test Conditions
 Each sort method is being tested on array of integers. 
 
@@ -16,7 +18,7 @@ Arrays are generated using the following structure patterns:
   * In ascending order (already sorted)
   * In descending order (worst case scenario)
   
-See [suits config](https://github.com/frolovilya/sorting-benchmark/blob/master/src/benchmark/suits/SuitsConfig.js) sources for detailed information.
+See [suites config](https://github.com/frolovilya/sorting-benchmark/blob/master/src/benchmark/suites/SuitesConfig.js) sources for detailed information.
 
 Time measurement is performed by [Benchmark.js](https://benchmarkjs.com) framework to ensure data accuracy.
 
